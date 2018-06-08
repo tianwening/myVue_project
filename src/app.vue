@@ -6,22 +6,22 @@
         <router-view></router-view>
         <!-- 底部 -->
         <nav class="mui-bar mui-bar-tab">
-			<a class="mui-tab-item mui-active" href="#tabbar">
+			<router-link class="mui-tab-item" :to="{name: 'home'}">
 				<span class="mui-icon icon-shouye"></span>
 				<span class="mui-tab-label">首页</span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-chat">
+			</router-link>
+			<router-link class="mui-tab-item" :to="{name: 'member'}">
 				<span class="mui-icon icon-huiyuan"></span>
 				<span class="mui-tab-label">会员</span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-contact">
+			</router-link>
+			<router-link class="mui-tab-item" :to="{name: 'shopcart'}">
 				<span class="mui-icon icon-gouwucheman"><span class="mui-badge">9</span></span>
 				<span class="mui-tab-label">购物车</span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-map">
+			</router-link>
+			<router-link class="mui-tab-item" :to="{name: 'search'}">
 				<span class="mui-icon mui-icon-search"></span>
 				<span class="mui-tab-label">查找</span>
-			</a>
+			</router-link>
 		</nav>
     </div>
 </template>
