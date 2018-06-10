@@ -36,14 +36,14 @@ module.exports = {
 				exclude: /node_modules/,
 				use: [
 					{
-						loader: "babel-loader",
-						options: {
-							presets: ["env"],//关键字转义
-							plugins: ["transform-runtime"]//函数转义
-						}
+						loader: "babel-loader"
 					}
 				]
 			},
+			{
+                test: /vue-preview.src.*?js$/,
+                use: ["babel-loader"]
+            },
 			{
 				test: /\.vue$/,
 				use: [

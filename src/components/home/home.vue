@@ -1,12 +1,8 @@
 <!-- html部分 -->
 <template>
     <div>
-        <!-- home首页轮播图 -->
-        <mt-swipe :auto="3000">
-            <mt-swipe-item v-for="(img,index) in imgs" :key="index">
-                <img :src="img.src" :alt="img.name">
-            </mt-swipe-item>
-        </mt-swipe>
+        <!-- 轮播图页面抽取组件 -->
+        <my-swipe url="lunbotu.json"></my-swipe>
         <!-- 九宫格 -->
         <div class="mui-content">
                 <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -17,16 +13,16 @@
                         </router-link>
                     </li>
                     <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                        <a href="#">
+                        <router-link :to="{name: 'photo.share'}">
                             <span class="mui-icon mui-icon-email"></span>
                             <div class="mui-media-body">图文分享</div>
-                        </a>
+                        </router-link>
                     </li>
                     <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                        <a href="#">
+                        <router-link :to="{name: 'goods.list'}">
                             <span class="mui-icon icon-shangpin"></span>
                             <div class="mui-media-body">商品展示</div>
-                        </a>
+                        </router-link>
                     </li>
                     <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                         <a href="#">
@@ -55,35 +51,25 @@
 export default {
     data() {
         return {
-            imgs: []
+            imgs: [],
+            content: []
         }
     },
     created() {
-        this.$ajax.get("luobotu.json", {
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded'
-            }
-        }).then(resp => {
-            console.log(resp.data)
-            this.imgs = resp.data;
-        })
+        
     }
 }
 </script>
 <!-- 样式部分 -->
 <style>
-/*轮播图样式*/
-.mint-swipe {
-    height: 187px;
-}
-.mint-swipe img {
-    height: 100%;
-    width: 100%;
-}
 /*九宫格样式*/
 .mui-table-view.mui-grid-view.mui-grid-9 {
+    background-color: #fff;
     border: 0;
     margin-top: 0;
+}
+.mui-table-view.mui-grid-view.mui-grid-9 li {
+    border: 0;
 }
 .mui-icon-home:before,
 .mui-icon-email:before,
