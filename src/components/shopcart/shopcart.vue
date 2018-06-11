@@ -75,6 +75,7 @@ export default {
     },
     created(){
     	let prods = prodTools.getProds();
+        if(JSON.stringify(prods)==='{}') return;
     	let result = [];
     	this.$ajax.get("getgoodsInfos.json").then(resp=>{
     		resp.data.forEach(value=>{
